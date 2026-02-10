@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace GeradorTxt
+namespace ConsoleApp1.GeradorTxt.Models.Leitura
 {
     public class Empresa
     {
@@ -8,6 +8,11 @@ namespace GeradorTxt
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public List<Documento> Documentos { get; set; }
+
+        public virtual IEnumerable<Documento> GetDocumentos()
+        {
+            return Documentos;
+        }
     }
 
     public class Documento
@@ -16,6 +21,11 @@ namespace GeradorTxt
         public string Numero { get; set; }
         public decimal Valor { get; set; }
         public List<ItemDocumento> Itens { get; set; }
+
+        public virtual IEnumerable<ItemDocumento> GetItens()
+        {
+            return Itens;
+        }
     }
 
     public class ItemDocumento

@@ -48,6 +48,15 @@ CodeCoverage/
 [Tt]est[Rr]esult*/
 [Bb]uild[Ll]og.*
 
+# Arquivos de usuário do Visual Studio
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Pastas de configuração do VS
+.vs/
+
 # NUnit
 *.VisualState.xml
 TestResult.xml

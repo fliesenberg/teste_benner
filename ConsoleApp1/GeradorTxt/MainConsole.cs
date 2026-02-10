@@ -1,3 +1,6 @@
+using ConsoleApp1.GeradorTxt.Gravacao.Leiaute_v1;
+using ConsoleApp1.GeradorTxt.Gravacao.Leiaute_v2;
+using ConsoleApp1.GeradorTxt.Leitura;
 using System;
 using System.IO;
 
@@ -62,17 +65,54 @@ namespace GeradorTxt
                         Console.Write("Gerar arquivo");
                         try
                         {
-                            var gerador = new GeradorArquivoBase();
+                            int versao = GetVersaoLeiaute();
 
-                            var dados = JsonRepository.LoadEmpresas(_jsonPath);
+                            if (versao == 1)
+                            {
+                                var gerador = new GeradorArquivoBase();
 
-                            var fileName = $"saida_leiaute_versão 01_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
+                                var dados = JsonRepository.LoadEmpresas(_jsonPath);
 
-                            var fullPath = Path.Combine(_outputDir, fileName);
+                                var fileName = $"saida_leiaute_versão 01_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
 
-                            gerador.Gerar(dados, fullPath);
+                                var fullPath = Path.Combine(_outputDir, fileName);
 
-                            Console.WriteLine("Arquivo gerado em: " + fullPath);
+                                string msgValidacao;
+
+                                if (gerador.Gerar(dados, fullPath, out msgValidacao))
+                                {
+                                    Console.WriteLine("Arquivo gerado em: " + fullPath);
+                                }
+                                else
+                                {
+                                    Console.WriteLine(msgValidacao);
+                                }  
+                            }
+                            else if (versao == 2)
+                            {
+                                var gerador = new GeradorArquivo_v2();
+
+                                var dados = JsonRepository_v2.LoadEmpresas(_jsonPath);
+
+                                var fileName = $"saida_leiaute_versão 02_{DateTime.Now:yyyyMMdd_HHmmss}.txt";
+
+                                var fullPath = Path.Combine(_outputDir, fileName);
+
+                                string msgValidacao;
+
+                                if (gerador.Gerar(dados, fullPath, out msgValidacao))
+                                {
+                                    Console.WriteLine("Arquivo gerado em: " + fullPath);
+                                }
+                                else
+                                {
+                                    Console.WriteLine(msgValidacao);
+                                } 
+                            }
+                            else
+                            {
+                                Console.WriteLine("Versão do leiaute incorreta!");
+                            }
                         }
                         catch (Exception ex)
                         {
@@ -88,6 +128,19 @@ namespace GeradorTxt
                         break;
                 }
             }
+        }
+
+        private static int GetVersaoLeiaute()
+        {
+            int versao;
+
+            Console.WriteLine();
+            Console.Write("Informe a versão do leiaute: ");
+            var retorno = Console.ReadLine();
+
+            Int32.TryParse(retorno, out versao);
+
+            return versao;
         }
     }
 }

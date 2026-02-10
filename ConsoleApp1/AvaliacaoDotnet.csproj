@@ -46,15 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GeradorTxt\Models.cs" />
+    <Compile Include="GeradorTxt\Gravacao\Leiaute_v2\GeradorArquivo_v2.cs" />
+    <Compile Include="GeradorTxt\Leitura\JsonRepository_v2.cs" />
+    <Compile Include="GeradorTxt\Models\Gravacao\TotaisArquivo_v2.cs" />
+    <Compile Include="GeradorTxt\Models\Leitura\Models.cs" />
+    <Compile Include="GeradorTxt\Models\Gravacao\Linha09.cs" />
+    <Compile Include="GeradorTxt\Models\Gravacao\Linha99.cs" />
+    <Compile Include="GeradorTxt\Models\Gravacao\TotaisArquivo.cs" />
+    <Compile Include="GeradorTxt\Models\Leitura\Models_v2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="GeradorTxt\GeradorArquivoBase.cs" />
-    <Compile Include="GeradorTxt\JsonRepository.cs" />
+    <Compile Include="GeradorTxt\Gravacao\Leiaute_v1\GeradorArquivoBase.cs" />
+    <Compile Include="GeradorTxt\Leitura\JsonRepository.cs" />
     <Compile Include="GeradorTxt\MainConsole.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
