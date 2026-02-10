@@ -2,7 +2,7 @@
 
 - Este projeto gera um arquivo .txt a partir de um arquivo .json
 
-- C# .Net, .Net Framework 4.8
+- C# .Net, .Net Framework 4.8, NUnit
 
 - Baixar o projeto do GitHub, abrir no Visual Studio, compilar e rodar
 
