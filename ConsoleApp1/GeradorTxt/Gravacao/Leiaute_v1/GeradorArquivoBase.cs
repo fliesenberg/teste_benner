@@ -55,7 +55,7 @@ namespace ConsoleApp1.GeradorTxt.Gravacao.Leiaute_v1
             return true;
         }
 
-        protected bool ValidarDocumentos(IEnumerable<Empresa> empresas, out string msgValidacao)
+        public bool ValidarDocumentos(IEnumerable<Empresa> empresas, out string msgValidacao)
         {
             msgValidacao = string.Empty;
 

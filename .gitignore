@@ -36,6 +36,12 @@ ScaffoldingReadMe.txt
 # NuGet Symbol Packages
 *.snupkg
 
+# Ignorar a pasta 'packages' (onde o NuGet baixa os pacotes)
+**/packages/*
+
+# Exceção: não ignore arquivos de configuração importantes (opcional)
+!**/packages/repositories.config
+
 # Others
 ~$*
 *~
